@@ -238,7 +238,7 @@ Entendendo a saída do arquivo: __`netif/leases/*`__ <br>
 
 ## 06_ Alterando as configurações da Placa de Rede do Ubuntu Server
 
-**OBSERVAÇÃO:** o nome do arquivo pode mudar dependendo da versão do Ubuntu Server, o arquivo: */etc/netplan/00-installer-config.yaml* é o padrão do *Ubuntu Server 22.04.x LTS*, no Ubuntu Server 24.04.x LTS tem o nome: */etc/netplan/50-cloud-init.yaml*, sempre digita o comando: *ls -lh /etc/netplan* antes saber e editar o arquivo Netplan corretamente.
+**OBSERVAÇÃO:** o nome do arquivo pode mudar dependendo da versão do Ubuntu Server, o arquivo: */etc/netplan/00-installer-config.yaml* é o padrão do *Ubuntu Server 22.04.x LTS*, no Ubuntu Server 26.04.x LTS tem o nome: */etc/netplan/50-cloud-init.yaml*, sempre digita o comando: *ls -lh /etc/netplan* antes saber e editar o arquivo Netplan corretamente.
 
 **OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do *Netplan* e baseado no formato de *Serialização de Dados Legíveis YAML (Yet Another Markup Language)* utilizado pela linguagem de programação **Python**, muito cuidado com o uso de espaços e tabulação e principalmente sua indentação.
 
