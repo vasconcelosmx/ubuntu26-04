@@ -115,7 +115,9 @@ Você pode estudar, compartilhar e utilizar o conteúdo como referência em seus
 Daniel Vasconcelos
 
 Site: http://dvconnect.com.br
+
 GitHub: https://github.com/vasconcelosmx
+
 Instagram: https://www.instagram.com/dv.connect
-YouTube: https://www.youtube.com/boraparapratica
+
 LinkedIn: https://br.linkedin.com/in/vasconcelosdaniel
