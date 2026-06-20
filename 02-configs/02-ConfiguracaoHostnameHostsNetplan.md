@@ -395,7 +395,7 @@ sudo systemctl status systemd-resolved
 ```bash
 #verificando o endereço IPv4 da Interface de Rede
 #opção do comando ifconfig: -a (all interfaces)
-sudo ifconfig -a
+sudo ip addr
 sudo ip address show
 
 #verificando as informações de Gateway padrão
