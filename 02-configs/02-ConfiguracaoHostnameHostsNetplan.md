@@ -18,8 +18,8 @@ Conteúdo estudado nessa configuração:<br>
 #05_ Verificando as informações de Endereços IPv4 no Ubuntu Server<br>
 #06_ Alterando as configurações da Placa de Rede do Ubuntu Server<br>
 #07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server<br>
-#08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
-#09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)<br>
+#08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server <br>
+#09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server <br>
 #10_ Verificando as informações da Placa de Rede depois de alterada no Ubuntu Server<br>
 #11_ Acessando a máquina virtual do Ubuntu Server remotamente via SSH
 
@@ -92,7 +92,7 @@ ff02::2 ip6-allrouters
 #salvar e sair do arquivo
 ESC SHIFT : x <Enter>
 
-#verificando as informações de hosts no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+#verificando as informações de hosts no Ubuntu Server 
 sudo getent hosts
 ```
 
@@ -113,7 +113,7 @@ sudo apt install bridge-utils ifenslave net-tools lshw iputils-ping
 sudo lspci -v | grep -i ethernet | cat -n
 ```
 
-Entendendo a saída do comando: __`lspci`__ (NÃO COMENTADO NO VÍDEO)<br>
+Entendendo a saída do comando: __`lspci`__ <br>
 | Campo                                 | Descrição                                                                                    |
 | ------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `1`                                   | Número da linha gerado pelo `cat -n`                                                         |
@@ -128,7 +128,7 @@ Entendendo a saída do comando: __`lspci`__ (NÃO COMENTADO NO VÍDEO)<br>
 sudo lshw -class network
 ```
 
-Entendendo a saída do comando: __`lshw`__ (NÃO COMENTADO NO VÍDEO)<br>
+Entendendo a saída do comando: __`lshw`__ <br>
 | Campo           | Descrição                                                         |
 | --------------- | ----------------------------------------------------------------- |
 | `description`   | Tipo da interface (ex.: Ethernet, Wireless)                       |
@@ -156,7 +156,7 @@ sudo ifconfig -a
 sudo ip address show
 ```
 
-Entendendo a saída do comando: __`ifconfig`__ (NÃO COMENTADO NO VÍDEO)<br>
+Entendendo a saída do comando: __`ifconfig`__ <br>
 | Campo                                                   | Descrição                                   |
 | ------------------------------------------------------- | ------------------------------------------- |
 | `enp0s3`                                                | Nome lógico da interface Ethernet detectada |
@@ -182,7 +182,7 @@ sudo route -n
 sudo ip route show
 ```
 
-Entendendo a saída do comando: __`route`__ (NÃO COMENTADO NO VÍDEO)<br>
+Entendendo a saída do comando: __`route`__ <br>
 | Campo           | Valor          | Descrição                                                                    |
 | --------------- | -------------- | ---------------------------------------------------------------------------- |
 | **Destination** | `0.0.0.0`      | Endereço de destino. `0.0.0.0` indica a **rota padrão (default route)**.     |
@@ -200,7 +200,7 @@ Entendendo a saída do comando: __`route`__ (NÃO COMENTADO NO VÍDEO)<br>
 sudo resolvectl status
 ```
 
-Entendendo a saída do comando: __`resolvectl`__ (NÃO COMENTADO NO VÍDEO)<br>
+Entendendo a saída do comando: __`resolvectl`__ <br>
 | Campo                | Valor                    | Descrição    |
 | -------------------- | -------------------------| -------------|
 | **Protocols**        | `-LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported` | Lista de protocolos de resolução **desativados** globalmente. DNSSEC está desativado ou não suportado. |
@@ -220,7 +220,7 @@ Entendendo a saída do comando: __`resolvectl`__ (NÃO COMENTADO NO VÍDEO)<br>
 sudo cat -n /run/systemd/netif/leases/*
 ```
 
-Entendendo a saída do arquivo: __`netif/leases/*`__ (NÃO COMENTADO NO VÍDEO)<br>
+Entendendo a saída do arquivo: __`netif/leases/*`__ <br>
 | **Campo**        | **Valor (Exemplo)**                      | **Descrição**                                                                                           |
 | ---------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | `ADDRESS`        | `192.168.0.50`                           | Endereço IP atribuído pelo servidor DHCP para a interface de rede.                                      |
@@ -238,7 +238,7 @@ Entendendo a saída do arquivo: __`netif/leases/*`__ (NÃO COMENTADO NO VÍDEO)<
 
 ## 06_ Alterando as configurações da Placa de Rede do Ubuntu Server
 
-**OBSERVAÇÃO:** o nome do arquivo pode mudar dependendo da versão do Ubuntu Server, o arquivo: */etc/netplan/00-installer-config.yaml* é o padrão do *Ubuntu Server 22.04.x LTS*, no Ubuntu Server 26.04.x LTS tem o nome: */etc/netplan/50-cloud-init.yaml*, sempre digita o comando: *ls -lh /etc/netplan* antes saber e editar o arquivo Netplan corretamente.
+**OBSERVAÇÃO:** o nome do arquivo pode mudar dependendo da versão do Ubuntu Server, o arquivo: */etc/netplan/00-installer-config.yaml* é o padrão do *Ubuntu Server 22.04.x LTS*, no Ubuntu Server 24.04.x LTS tem o nome: */etc/netplan/50-cloud-init.yaml*, sempre digita o comando: *ls -lh /etc/netplan* antes saber e editar o arquivo Netplan corretamente.
 
 **OBSERVAÇÃO IMPORTANTE:** o arquivo de configuração do *Netplan* e baseado no formato de *Serialização de Dados Legíveis YAML (Yet Another Markup Language)* utilizado pela linguagem de programação **Python**, muito cuidado com o uso de espaços e tabulação e principalmente sua indentação.
 
@@ -331,16 +331,16 @@ ESC SHIFT : x <Enter>
 
 ## 07_ Aplicando as configurações do Netplan e verificando as informações de Rede do Ubuntu Server
 ```bash
-#fazendo o backup do arquivo de configuração modificado do Netplan (NÃO COMENTADO NO VÍDEO)
+#fazendo o backup do arquivo de configuração modificado do Netplan 
 #opção do comando cp: -v (verbose)
 #sudo cp -v /etc/netplan/00-installer-config.yaml /etc/netplan/00-installer-config.yaml.bkp (ARQUIVO ANTIGO)
 sudo cp -v /etc/netplan/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml.bkp
 
-#listando o conteúdo do diretório do Netplan com os novos arquivos (NÃO COMENTADO NO VÍDEO)
+#listando o conteúdo do diretório do Netplan com os novos arquivos 
 #opção do comando ls: -l (long listing), -h (human-readable)
 ls -lh /etc/netplan/
 
-#verificando as configurações do arquivo do Netplan no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+#verificando as configurações do arquivo do Netplan no Ubuntu Server 
 #opções do comando netplan: --debug (enable debug messages), get (get a settings config netplan)
 sudo netplan --debug get
 
@@ -354,9 +354,9 @@ sudo netplan --debug apply
 sudo netplan --debug try
 ```
 
-## 08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+## 08_ Habilitando o suporte ao DNS Over TLS (DoT) e DNSSEC no Ubuntu Server 
 ```bash
-#editando o arquivo de configuração do Systemd Resolved no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+#editando o arquivo de configuração do Systemd Resolved no Ubuntu Server 
 sudo vim /etc/systemd/resolved.conf
 
 #entrando no modo de edição do editor de texto VIM
@@ -380,13 +380,13 @@ Cache=yes
 ESC SHIFT :x <Enter>
 ```
 
-## 09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server (NÃO COMENTADO NO VÍDEO)
+## 09_ Reinicializar o serviço do Systemd Resolved (Resolução de Nomes) no Ubuntu Server 
 ```bash
-#reiniciar o serviço do Resolved (NÃO COMENTADO NO VÍDEO)
+#reiniciar o serviço do Resolved 
 #opção do comando systemctl: restart (Stop and then start one or more units specified on the command line)
 sudo systemctl restart systemd-resolved
 
-#verificar o status do serviço do Resolved (NÃO COMENTADO NO VÍDEO)
+#verificar o status do serviço do Resolved 
 #opção do comando systemctl: status (Show terse runtime status information about one or more units)
 sudo systemctl status systemd-resolved
 ```
@@ -407,7 +407,7 @@ sudo ip route show
 #opção do comando resolvectl: status (Shows the global and per-link DNS settings currently in effect)
 sudo resolvectl status
 
-#verificando as informações de endereço IPv4, DNS e Gateway com o Netplan (NÃO COMENTADO NO VÍDEO)
+#verificando as informações de endereço IPv4, DNS e Gateway com o Netplan 
 #opção do comando netplan: status (show network address configuration)
 sudo netplan status
 
