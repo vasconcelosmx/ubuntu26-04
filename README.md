@@ -15,6 +15,7 @@ Todo o material disponibilizado neste repositório é gratuito e foi elaborado c
 Ao concluir os procedimentos apresentados neste repositório, você será capaz de:
 
 * Realizar o download e instalação do Ubuntu Server 26.04 LTS;
+
 * Criar e configurar máquinas virtuais utilizando Oracle VirtualBox;
 * Entender os conceitos de ambientes On-Premises e Cloud Computing;
 * Configurar servidores Linux para utilização em laboratórios e produção;
